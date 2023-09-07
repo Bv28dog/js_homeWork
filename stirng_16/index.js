@@ -1,16 +1,16 @@
 const funcStr = (str) => {
-  let strreverse = str.split("").reverse().join("");
+  const strreverse = str.split("").reverse().join("");
   return strreverse;
 };
 console.log(funcStr("Hello"));
 
 const countWords = (str) => {
-  let regularExpression = /\b\w+\b/g;
-  let result = str.match(regularExpression);
+  const regularExpression = /\b\w+\b/g;
+  const result = str.match(regularExpression);
   if (result) {
     return ` Кількість слів в реченні:) ${result.length}`;
   }
-  0;
+  return 0;
 };
 console.log(countWords("Hi my name is Taras"));
 
