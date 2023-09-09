@@ -1,12 +1,13 @@
-const filterRange = (arr, from, to) => arr.filter(el => el >= from && el <= to);
+const filterRange = (arr, from, to) =>
+  arr.filter((el) => el >= from && el <= to);
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(filterRange(arr, 3, 7));
 
-const sortArr = arr => arr.sort((a, b) => a - b);
+const sortArr = (arr) => arr.sort((a, b) => a - b);
 const arr1 = [324, 32423, -3242, 544, 0, 23, -454, 22, 4];
 console.log(sortArr(arr1));
 
-const sortStr = arr => arr.sort((a, b) => a.length - b.length);
+const sortStr = (arr) => arr.sort((a, b) => a.length - b.length);
 const arrStr = ["4534", "a", "bb", "sdfds", "", " ", "r4rdv-"];
 console.log(sortStr(arrStr));
 
@@ -27,7 +28,8 @@ const averageAge = (arr) => {
   const average = arr.reduce((acc, el) => {
     return el.age > minAgeRange && el.age < maxAgeRange ? acc + el.age : acc;
   }, 0);
-  const filteredAge = arr.filter(el => el.age > minAgeRange && el.age < maxAgeRange
+  const filteredAge = arr.filter(
+    (el) => el.age > minAgeRange && el.age < maxAgeRange
   );
   return average / filteredAge.length;
 };
@@ -109,3 +111,27 @@ const unique = (arr) => {
   return uniqueArr;
 };
 console.log(unique(strings));
+
+function findLongestSequence(arr) {
+  let currentSequence = [arr[0]];
+  let longestSequence = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1] + 1) {
+      currentSequence.push(arr[i]);
+    } else {
+      if (currentSequence.length > longestSequence.length) {
+        longestSequence = currentSequence;
+      }
+      currentSequence = [arr[i]];
+    }
+  }
+
+  if (currentSequence.length > longestSequence.length) {
+    longestSequence = currentSequence;
+  }
+
+  return longestSequence;
+}
+
+const inputArray = [1, 2, 3, 4, 5, 2, 3, 4, 5, 6, 7, 8, 1];
