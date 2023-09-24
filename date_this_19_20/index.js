@@ -146,12 +146,15 @@ function Car(model, color, age, speed, gasTank, started) {
     }
   };
 
-  this.addGas = function (arg) { 
-    this.gasTank = Math.min(this.gasTank + arg, 20);
-  };
+  // this.addGas = function (arg) { 
+  //   this.gasTank = Math.min(this.gasTank + arg, 20);
+  // };
 }
+Car.prototype.addGas = function (arg) { 
+  this.gasTank = Math.min(this.gasTank + arg, 20);
+};
 
-const myCar = new Car('Mazda6.', 'white');
+const myCar = new Car('Mazda6.', 'white',);
 myCar.addGas(5)
 myCar.startEngine()
 myCar.drive()
@@ -159,4 +162,5 @@ myCar.slowDown(15)
 myCar.speedUp(5)
 myCar.stop()
 console.log(myCar.speed)
+console.log(myCar);
 
