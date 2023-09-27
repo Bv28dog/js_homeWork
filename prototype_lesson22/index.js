@@ -9,14 +9,15 @@ const facultyPrototype = {
   facultyName: "IT-Technology",
   groups: [],
   enlistStudent(studentName) {
-    if (this.groups.length < 12) {
-      this.groups.push([studentName]);
-      console.log(`Зараховано студента ${studentName}`);
-    } else {
-      console.log(
-        `Вибачте ця група вже заповнена ми не можемо зарахувати студента ${studentName}`
-      );
+    let currentGroup = this.groups[this.groups.length - 1];
+
+    if (!currentGroup || currentGroup.length >= 12) {
+      currentGroup = [];
+      this.groups.push(currentGroup);
     }
+
+    currentGroup.push(studentName);
+    console.log(`Зараховано студента ${studentName}`);
   },
 };
 const faculty = Object.create(facultyPrototype);
@@ -25,6 +26,21 @@ faculty.dean = university.dean;
 
 faculty.enlistStudent("Taras");
 faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+faculty.enlistStudent("YAna");
+
 console.log(faculty.groups);
 console.log(faculty.universityName);
 console.log(faculty.dean);
