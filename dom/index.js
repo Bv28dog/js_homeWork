@@ -4,32 +4,13 @@ class NotificationService {
     this.notificationText = document.getElementById("notificationText");
   }
 
-  showMessage(message, className, duration) {
-    this.notification.className = "notification ";
+  showMessage(message, status, duration) {
     this.notificationText.innerText = message;
     this.notification.style.display = "block";
-    if (className === "success") {
-      this.notificationText.style.cssText = `
-      background-color: green;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      border-radius: 20px;
-      align-items: center;
-      height: 100px;
-      color: white;
-      font-size: 40px;`;
+    if (status === "success") {
+      this.notificationText.className = "notificationClass";
     } else {
-      this.notificationText.style.cssText = `
-      background-color: red;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      border-radius: 20px;
-      align-items: center;
-      height: 100px;
-      color: black;
-      font-size: 40px;`;
+      this.notificationText.className = "notificationClass2";
     }
 
     setTimeout(() => {
@@ -62,4 +43,5 @@ const successNotificationService = new SuccessNotification();
 const errorNotificationService = new ErrorNotification();
 
 console.log(errorNotificationService.showErrorMessage("Error", 3000));
-console.log(successNotificationService.showSuccessMessage("Success", 5000));
+console.log(successNotificationService.showSuccessMessage("Success", 6000));
+
