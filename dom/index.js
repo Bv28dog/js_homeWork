@@ -5,29 +5,31 @@ class NotificationService {
   }
 
   showMessage(message, className, duration) {
-    this.notification.className = "notification " + className;
+    this.notification.className = "notification ";
     this.notificationText.innerText = message;
     this.notification.style.display = "block";
     if (className === "success") {
-      this.notificationText.style.backgroundColor = "green";
-      this.notificationText.style.textAlign = "center";
-      this.notificationText.style.display = "flex";
-      this.notificationText.style.justifyContent = "center";
-      this.notificationText.style.borderRadius = "20px";
-      this.notificationText.style.alignItems = " center";
-      this.notificationText.style.height = "100px";
-      this.notificationText.style.color = "white";
-      this.notificationText.style.fontSize = "40px";
+      this.notificationText.style.cssText = `
+      background-color: green;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      border-radius: 20px;
+      align-items: center;
+      height: 100px;
+      color: white;
+      font-size: 40px;`;
     } else {
-      this.notificationText.style.backgroundColor = "red";
-      this.notificationText.style.textAlign = "center";
-      this.notificationText.style.display = "flex";
-      this.notificationText.style.justifyContent = "center";
-      this.notificationText.style.borderRadius = "20px";
-      this.notificationText.style.alignItems = " center";
-      this.notificationText.style.height = "100px";
-      this.notificationText.style.color = "black";
-      this.notificationText.style.fontSize = "40px";
+      this.notificationText.style.cssText = `
+      background-color: red;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      border-radius: 20px;
+      align-items: center;
+      height: 100px;
+      color: black;
+      font-size: 40px;`;
     }
 
     setTimeout(() => {
@@ -59,5 +61,5 @@ class ErrorNotification extends NotificationService {
 const successNotificationService = new SuccessNotification();
 const errorNotificationService = new ErrorNotification();
 
-console.log(successNotificationService.showSuccessMessage("Success"));
-console.log(errorNotificationService.showErrorMessage("Error"));
+console.log(errorNotificationService.showErrorMessage("Error", 3000));
+console.log(successNotificationService.showSuccessMessage("Success", 5000));

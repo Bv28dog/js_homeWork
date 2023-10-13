@@ -8,12 +8,36 @@
         .notification {
             display: none;
            
+        };
+        .notificationClass {
+            background-color: green;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 20px;
+            align-items: center;
+            height: 100px;
+            color: white;
+            font-size: 40px;
+
+        };
+        .notificationClass{
+            background-color: red;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 20px;
+            align-items: center;
+            height: 100px;
+            color: black;
+            font-size: 40px;
         }
+
     </style>
 </head>
 <body>
     <div class="notification" id="notification">
-        <p id="notificationText"></p>
+        <p id="notificationText" class="notificationClass notificationClass2"></p>
     </div>
     <script src="./index.js"></script>
 </body>
