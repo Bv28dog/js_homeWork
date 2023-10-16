@@ -1,9 +1,9 @@
-import { Octokit } from "https://esm.sh/octokit";
+import { Octokit , App } from "https://esm.sh/octokit";
 
 class GitHubUsers {
   constructor() {
     this.#octokit = new Octokit({
-      auth: "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",
+      auth: "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",
     });
   }
   #octokit;
